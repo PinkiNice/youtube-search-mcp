@@ -1,0 +1,37 @@
+[project]
+name = "yt-transcript"
+version = "0.1.0"
+description = "YouTube transcripts, search, channels and playlists as an MCP server and a TranscriptAPI-compatible HTTP API, running locally"
+readme = "README.md"
+authors = [
+    { name = "George Goshanov", email = "goshaplutahin@gmail.com" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.165.0",
+    "httpx[socks]>=0.28.1",
+    "mcp>=2.3",
+    "pydantic-settings>=2.16.3",
+    "uvicorn[standard]>=0.54.0",
+    "yt-dlp>=2026.3.17",
+]
+
+[project.urls]
+Repository = "https://github.com/PinkiNice/youtube-search-mcp"
+
+[project.scripts]
+yt-transcript = "yt_transcript.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
